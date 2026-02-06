@@ -18,17 +18,17 @@ app.use("/uploads", express.static("uploads"));
 //     credentials: true,
 //     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 //     allowedHeaders: ["Content-Type", "Authorization"],
-//   })
+//   }),
 // );
 
-app.use(
-  cors({
-    origin: "https://identificamz.vercel.app",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://identificamz.vercel.app",
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
 app.use(cookieParser());
 app.use(express.json());
@@ -42,7 +42,7 @@ app.use(
     err: any,
     _req: express.Request,
     res: express.Response,
-    _next: express.NextFunction
+    _next: express.NextFunction,
   ) => {
     console.error("ERRO GLOBAL:", err);
 
@@ -58,7 +58,7 @@ app.use(
       type: "INTERNAL_ERROR",
       message: err.message || "Erro interno do servidor",
     });
-  }
+  },
 );
 
 const PORT = process.env.PORT || 4000;
