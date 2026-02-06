@@ -21,6 +21,12 @@ app.use("/uploads", express.static("uploads"));
 //   }),
 // );
 
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://identificamz.vercel.app"],
+  }),
+);
+
 // app.use(
 //   cors({
 //     origin: "https://identificamz.vercel.app",
